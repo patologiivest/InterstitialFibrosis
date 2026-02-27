@@ -31,6 +31,12 @@ ProjectRoot/
 
 ## Usage
 
+### Environment
+
+'''bash
+conda env create -f Env/FibrosisReport.yml
+'''
+
 ### CLI signature
 
 ```bash
@@ -76,7 +82,6 @@ python FibrosisReport.py --image_path "ProjectRoot" -d -RAM --method red_green_f
 ```bash
 python FibrosisReport.py --image_path "ProjectRoot/Images/Image1.svs" -f -DISK --method stain_decon --report full --post_processing True
 ```
-
 ---
 
 # License
