@@ -37,7 +37,7 @@ ProjectRoot/
 conda env create -f Env/FibrosisReport.yml
 ```
 
-### CLI signature
+### CLI
 
 ```bash
 python FibrosisReport.py --image_path [Required] -f/-d -RAM/-DISK --method [Required] --report [Optional] --no-mask [Optional] --post_processing [Optional]
