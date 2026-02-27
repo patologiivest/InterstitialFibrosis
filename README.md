@@ -33,9 +33,9 @@ ProjectRoot/
 
 ### Environment
 
-'''bash
+```bash
 conda env create -f Env/FibrosisReport.yml
-'''
+```
 
 ### CLI signature
 
