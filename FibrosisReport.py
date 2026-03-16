@@ -13,7 +13,7 @@ from openslide.deepzoom import DeepZoomGenerator
 
 from Utils.paths import project_root_from_image, ensure_masks_from_annotations
 from Utils.mask_reader import MaskRegionReader
-from Utils.tile_selection import calculate_useful_tiles_by_coords
+from Utils.tile_selection import calculate_useful_tiles
 from Utils.disk_cache import tile_cache_dirs, save_disk_tile_bundle
 from Utils.zarr_helpers import count_positive_pixels_level0
 from Utils.image_utils import get_mpp_um, save_binary_mask_tiff
@@ -53,7 +53,13 @@ def process_one_image(
     glom_reader = MaskRegionReader(glom_mask_path)
     tub_reader = MaskRegionReader(tub_mask_path)
 
-    useful_tiles = calculate_useful_tiles_by_coords(dz_img, level, cortex_reader, cortex_tile_threshold_pct)
+    useful_tiles = calculate_useful_tiles(
+        image_path=str(img),
+        tile_deepzoom_object=dz_img,
+        useful_region_annotation_path=cortex_mask_path,
+        level=level,
+        percentage_threshold=cortex_tile_threshold_pct,
+    )
 
     W, H = map(int, slide.dimensions)
 
